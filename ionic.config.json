@@ -1,5 +1,7 @@
 {
   "name": "MGL",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
