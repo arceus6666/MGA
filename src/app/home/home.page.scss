@@ -2,3 +2,53 @@
   max-height: 35vh;
   overflow: hidden;
 }
+
+.toolbar-background {
+  //background-image: url('../../assets/images/logo.png')!important;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  //background-color: black;
+}
+
+.home-image {
+  float:left;
+  padding-right: 20px;
+  height: 600px;
+  width: 400px;
+}
+
+.star-image {
+  float:left;
+  height: 50px;
+  width: 50px;
+}
+
+.game-title {
+  //padding-left: 450px;
+  font-size: 300%;
+  font-family: "Comic Sans MS", Helvetica, sans-serif;
+}
+
+.game-publishing {
+  font-size: 200%;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.game-description {
+  font-size: 200%;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.welcome-title {
+  font-size: 500%;
+  font-family: "Impact", Charcoal, sans-serif;
+  text-align: center;
+}
+
+.welcome-message {
+  font-size: 300%;
+  font-family: Tahoma, Geneva, sans-serif;
+  text-align: center;
+  padding-bottom: 100px;
+}

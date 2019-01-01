@@ -14,11 +14,14 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
-  }
+  },
+  { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },  { path: 'search', loadChildren: './search/search.module#SearchPageModule' }
+
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
