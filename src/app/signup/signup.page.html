@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="red">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="toolbar-background">
+      <img object-fit: cover src="../../assets/images/logo.png">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding color="red">
+  <ion-item>
+    <ion-label floating>Username:</ion-label>
+    <ion-input name="username" type="text" #username="ngModel" [(ngModel)]="un"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Firstname:</ion-label>
+    <ion-input name="firstname" type="text" #firstname="ngModel" [(ngModel)]="fn"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Lastname:</ion-label>
+    <ion-input name="lastname" type="text" #lastname="ngModel" [(ngModel)]="ln"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>E-mail:</ion-label>
+    <ion-input name="email" type="text" #email="ngModel" [(ngModel)]="mail"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Password</ion-label>
+    <ion-input name="password" type="password" #password="ngModel" [(ngModel)]="pass" text-input-md-background-color="black"></ion-input>
+  </ion-item>
+  <ion-button (click)="signup()" color="dark" round>SignUp</ion-button>
+</ion-content>

@@ -26,7 +26,7 @@ export class SearchPage implements OnInit {
 
   public search(): void {
     this.stars = []
-    this._restapi.getGlobal('/games/find-name', '', this.game_name).subscribe(data => {
+    this._restapi.getGlobal('/games/find-name', this.game_name).subscribe(data => {
       let mdata: any = data;
       let g: any = mdata.msg;
       if (mdata.ok) {
@@ -58,7 +58,9 @@ export class SearchPage implements OnInit {
         this.searched = true;
       }
     }, err => {
-      this._stuffManager.showAlert('Error', err)
+      let e: any = err;
+      e = e.error.msg.errmsg;
+      this._stuffManager.showAlert('Error', null, e)
     })
   }
 

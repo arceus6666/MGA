@@ -9,19 +9,12 @@ import { StuffManagerService } from '../services/stuff-manager.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  public image: string = '../../assets/images/';
+  public image: string;
   public name: string;
   public rating: number;
   public stars = [];
   public release: Date;
   public description: string;
-  private games: Array<string> = [
-    'batman-return-to-arkham.png',
-    'tekken-7.png',
-    'valkyria-chronicles-remastered.png',
-    'heavy-rain.png',
-    'marvel-vs-capcom-infinite.png'
-  ];
 
   private names: Array<string> = [
     'Batman: Return to Arkham',
@@ -35,16 +28,16 @@ export class HomePage {
     private _restapi: RestapiService,
     private _stuffManager: StuffManagerService
   ) {
-    let r = Math.floor(Math.random() * this.games.length);
-    for (let g = 0; g < this.games.length; g++) {
-      if (g === r) {
-        this.name = this.names[g];
-        this.image += this.games[g];
+    let r = Math.floor(Math.random() * this.names.length);
+    for (let i = 0; i < this.names.length; i++) {
+      if (i === r) {
+        this.name = this.names[i];
       }
     }
-    this._restapi.getGlobal('/games/find-name', '', this.name).subscribe(data => {
+    this._restapi.getGlobal('/games/find-name', this.name).subscribe(data => {
       let mdata: any = data;
       mdata = mdata.msg;
+      this.image = '../../assets/images/' + mdata.img + '.png';
       this.rating = mdata.rating;
       let date = (mdata.released + '').split('T')[0].split('-');
       let year = parseInt(date[0]);
@@ -52,13 +45,13 @@ export class HomePage {
       let day = parseInt(date[2]);
       this.release = new Date(year, month - 1, day);
       this.description = mdata.description;
-      let splt = (this.rating + '').split('.');
-      let ns = [parseInt(splt[0]), parseInt(splt[1])];
+      let ns = [Math.floor(this.rating), this.rating % 1];
       for (let i = 0; i < 5; i++) {
-        if (ns[0] > i)
+        if (ns[0] > i) {
           this.stars.push('../../assets/images/star.png');
-        else
+        } else {
           this.stars.push('../../assets/images/star-empty.png');
+        }
       }
       if (ns[0] < 5) {
         if (ns[1] > 0) {
@@ -68,12 +61,13 @@ export class HomePage {
         }
       }
     }, err => {
-      this._stuffManager.showAlert('Game not found', '');
+      let e: any = err;
+      e = e.error.msg.errmsg;
+      this._stuffManager.showAlert('Game not found', null, e);
     })
   }
 
-  addImageName(game, name) {
-    this.games.push(game);
+  public addImageName(name): void {
     this.names.push(name);
   }
 

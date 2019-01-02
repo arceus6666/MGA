@@ -12,6 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { RestapiService } from './services/restapi.service';
 import { FormsModule } from '@angular/forms';
+import { LoggerService } from './services/logger.service';
+import { StuffManagerService } from './services/stuff-manager.service';
+import { Camera } from '@ionic-native/camera/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +31,10 @@ import { FormsModule } from '@angular/forms';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    RestapiService
+    RestapiService,
+    LoggerService,
+    StuffManagerService,
+    Camera
   ],
   bootstrap: [AppComponent]
 })

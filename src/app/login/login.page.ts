@@ -23,15 +23,16 @@ export class LoginPage implements OnInit {
   }
 
   login() {
-    this._restapi.getGlobal('/users/login', '', this.un + '-' + this.pass).subscribe(data => {
+    this._restapi.getGlobal('/users/login', this.un + '-' + this.pass).subscribe(data => {
       let mdata: any = data;
-      console.log(mdata)
       mdata = mdata.msg;
       this._logger.login(mdata._id);
-      this._router.navigate(['home'])
-      this._stuffManager.showAlert('Welcome')
+      this._router.navigate(['home']);
+      this._stuffManager.showAlert('Welcome');
     }, err => {
-      this._stuffManager.showAlert('Error', err);
+      let e: any = err;
+      e = e.error.msg.errmsg;
+      this._stuffManager.showAlert('Error', null, e);
     })
   }
 

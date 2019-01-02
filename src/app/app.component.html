@@ -11,7 +11,7 @@
           <ion-menu-toggle auto-hide="false" *ngFor="let p of this._stuffManager.getPages()" color="dark">
             <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" color="dark">
               <ion-icon slot="start" [name]="p.icon"></ion-icon>
-              <ion-label>
+              <ion-label color="red">
                 {{p.title}}
               </ion-label>
             </ion-item>

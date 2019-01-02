@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AlertController, LoadingController } from '@ionic/angular';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ export class StuffManagerService {
 
   constructor(
     private alertCtrl: AlertController,
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController,
+    private camera: Camera
   ) {
     this.appPages = [
       {
@@ -19,14 +21,19 @@ export class StuffManagerService {
         icon: 'home'
       },
       {
+        title: 'Search',
+        url: '/search',
+        icon: 'search'
+      },
+      {
         title: 'Login',
         url: '/login',
         icon: 'log-in'
       },
       {
-        title: 'Search',
-        url: '/search',
-        icon: 'search'
+        title: 'Signup',
+        url: '/signup',
+        icon: 'person-add'
       }
     ];
   }
@@ -61,7 +68,7 @@ export class StuffManagerService {
       alert.subHeader = subheader;
     }
 
-    if(message) {
+    if (message) {
       alert.message = message;
     }
 
@@ -85,4 +92,21 @@ export class StuffManagerService {
     await loading.present();
   }
 
+
+  public takePhoto() {
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.PNG,
+      mediaType: this.camera.MediaType.PICTURE,
+      cameraDirection: this.camera.Direction.FRONT,
+      targetHeight: 400,
+      targetWidth: 400
+    };
+    this.camera.getPicture(options).then((imageData) => {
+      return 'data:image/png;base64,' + imageData;
+    }, err => {
+      this.showAlert('An error ocurred with the camera', null, err);
+    })
+  }
 }

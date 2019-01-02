@@ -27,7 +27,7 @@ export class ProfilePage implements OnInit {
 
   public getInfo(): void {
     if (this.logged) {
-      this._restapi.getGlobal('/users/find/' + this._logger.getId(), '', '').subscribe(data => {
+      this._restapi.getGlobal('/users/find/' + this._logger.getId(), '').subscribe(data => {
         let mdata: any = data;
         mdata = mdata.msg;
         this.user.username = mdata.username;
@@ -35,10 +35,16 @@ export class ProfilePage implements OnInit {
         this.user.email = mdata.email;
         this.user.signupDate = mdata.signupDate;
       }, err => {
-        this._stuffManager.showAlert('Error', null, err);
+        let e: any = err;
+        e = e.error.msg.errmsg;
+        this._stuffManager.showAlert('Error', null, e);
       })
     } else {
       this._stuffManager.showAlert('Please login');
     }
+  }
+
+  public takePicture(): void {
+
   }
 }

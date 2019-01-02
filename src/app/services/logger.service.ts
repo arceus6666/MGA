@@ -32,14 +32,19 @@ export class LoggerService {
         icon: 'home'
       },
       {
+        title: 'Search',
+        url: '/search',
+        icon: 'search'
+      },
+      {
         title: 'Profile',
         url: '/profile',
         icon: 'person'
       },
       {
-        title: 'Search',
-        url: '/search',
-        icon: 'search'
+        title: 'Logout',
+        url: '/logout',
+        icon: 'log-out'
       }
     ])
   }
@@ -54,14 +59,19 @@ export class LoggerService {
         icon: 'home'
       },
       {
+        title: 'Search',
+        url: '/search',
+        icon: 'search'
+      },
+      {
         title: 'Login',
         url: '/login',
         icon: 'log-in'
       },
       {
-        title: 'Search',
-        url: '/search',
-        icon: 'search'
+        title: 'Signup',
+        url: '/signup',
+        icon: 'person-add'
       }
     ])
   }
