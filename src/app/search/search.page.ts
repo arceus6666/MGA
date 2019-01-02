@@ -13,12 +13,15 @@ export class SearchPage implements OnInit {
   public game: any;
   public stars = [];
   public image: string;
+  public pfs: Array<boolean>;
   constructor(
     private _restapi: RestapiService,
     private _stuffManager: StuffManagerService
   ) {
     this.searched = false;
     this.game = {};
+    // ps, xbox, windows, otro
+    this.pfs = [false, false, false, false];
   }
 
   ngOnInit() {
@@ -26,6 +29,7 @@ export class SearchPage implements OnInit {
 
   public search(): void {
     this.stars = []
+    this.pfs = [false, false, false, false];
     this._restapi.getGlobal('/games/find-name', this.game_name).subscribe(data => {
       let mdata: any = data;
       let g: any = mdata.msg;
@@ -55,6 +59,21 @@ export class SearchPage implements OnInit {
             this.stars[4] = ('../../assets/images/star-empty.png');
           }
         }
+
+        for (let p in g.platforms) {
+          let txt = g.platforms[p].toLowerCase();
+          console.log(txt)
+          if (txt.includes('playstation')) {
+            this.pfs[0] = true;
+          } else if (txt.includes('xbox')) {
+            this.pfs[1] = true;
+          } else if (txt.includes('windows')) {
+            this.pfs[2] = true;
+          } else {
+            this.pfs[3] = true;
+          }
+        }
+        console.log(this.pfs)
         this.searched = true;
       }
     }, err => {

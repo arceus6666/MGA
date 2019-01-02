@@ -18,10 +18,11 @@ export class HomePage {
 
   private names: Array<string> = [
     'Batman: Return to Arkham',
-    'TEKKEN 7',
+    'Tekken 7',
     'Valkyria Chronicles Remastered',
     'Heavy Rain',
-    'Marvel vs. Capcom: Infinite'
+    'Marvel vs. Capcom: Infinite',
+    'Tekken Tag Tournament 2'
   ];
 
   constructor(
@@ -64,7 +65,7 @@ export class HomePage {
       let e: any = err;
       e = e.error.msg.errmsg;
       this._stuffManager.showAlert('Game not found', null, e);
-    })
+    });
   }
 
   public addImageName(name): void {

@@ -33,7 +33,7 @@ export class LoginPage implements OnInit {
       let e: any = err;
       e = e.error.msg.errmsg;
       this._stuffManager.showAlert('Error', null, e);
-    })
+    });
   }
 
   signup() {

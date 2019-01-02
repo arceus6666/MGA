@@ -30,6 +30,9 @@
       <b>Released on: </b> {{this.game.released | date}}
       <br />
     </div>
+    <div class="game-icon">
+      Available on <ion-icon *ngIf="pfs[0]" name="logo-playstation"></ion-icon><ion-icon *ngIf="pfs[1]" name="logo-xbox"></ion-icon><ion-icon *ngIf="pfs[2]" name="logo-windows"></ion-icon><ion-icon *ngIf="pfs[3]" name="logo-game-controller-b"></ion-icon>
+    </div>
     <div class="game-description">
       <b>Description</b>
       <br />
