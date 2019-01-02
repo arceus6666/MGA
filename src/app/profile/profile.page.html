@@ -1,9 +1,22 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>profile</ion-title>
+  <ion-toolbar color="red">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="toolbar-background">
+      <img object-fit: cover src="../../assets/images/logo.png">
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
+  <div *ngIf="logged">
+    <img class="profile-image" src="../../assets/images/profile.png">
+    <b class="user-username">{{this.user.username}}</b><br />
+    <div class="user-info">
+      Fullname: {{this.user.fullname.firstname}} {{this.user.fullname.lastname}}<br />
+      Email: {{this.user.email}}<br />
+      Registered on: {{this.user.signupDate | date}}<br />
+    </div>
+  </div>
 </ion-content>

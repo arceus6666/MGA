@@ -19,14 +19,16 @@ export class HomePage {
     'batman-return-to-arkham.png',
     'tekken-7.png',
     'valkyria-chronicles-remastered.png',
-    'heavy-rain.png'
+    'heavy-rain.png',
+    'marvel-vs-capcom-infinite.png'
   ];
 
   private names: Array<string> = [
     'Batman: Return to Arkham',
     'TEKKEN 7',
     'Valkyria Chronicles Remastered',
-    'Heavy Rain'
+    'Heavy Rain',
+    'Marvel vs. Capcom: Infinite'
   ];
 
   constructor(

@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar style="background-color: black;">
+  <ion-toolbar color="red">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -9,12 +9,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding color="red">
   <ion-item>
     <ion-label floating>Search Here</ion-label>
     <ion-input name="gn" type="text" #gn="ngModel" [(ngModel)]="game_name"></ion-input>
     <ion-icon name="search" (click)="search()"></ion-icon>
   </ion-item>
+  <br/>
   <div *ngIf="this.searched">
     <img class="home-image" [src]="this.image">
     <div class="game-title">{{this.game.name}}</div>

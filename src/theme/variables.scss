@@ -74,4 +74,51 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  /** black **/
+  --ion-color-black: #000000;
+  --ion-color-black-rgb: 0, 0, 0;
+  --ion-color-black-contrast: #000000;
+  --ion-color-black-contrast-rgb: 0, 0, 0;
+  --ion-color-black-shade: #111111;
+  --ion-color-black-tint: #111111;
+
+  /** red **/
+  --ion-color-red: #bb0000;
+  --ion-color-red-rgb: 187, 0, 0;
+  --ion-color-red-contrast: #930000;
+  --ion-color-red-contrast-rgb: 147, 0, 0;
+  --ion-color-red-shade: #9e1111;
+  --ion-color-red-tint: #9e1111;
 }
+
+.ion-color-black {
+  --ion-color-base: #000000;
+  --ion-color-base-rgb: 0, 0, 0;
+  --ion-color-base-contrast: #000000;
+  --ion-color-base-contrast-rgb: 0, 0, 0;
+  --ion-color-base-shade: #111111;
+  --ion-color-base-tint: #111111;
+}
+
+.ion-color-red {
+  --ion-color-base: #bb0000;
+  --ion-color-base-rgb: 187, 0, 0;
+  --ion-color-base-contrast: #930000;
+  --ion-color-base-contrast-rgb: 147, 0, 0;
+  --ion-color-base-shade: #9e1111;
+  --ion-color-base-tint: #9e1111;
+}
+
+ion-input {
+  --background: #222428;
+  --color: #bb0000;
+  --highlight-color-valid: transparent !important;
+}
+
+ion-item {
+  --background: #222428;
+  --color: #bb0000;
+  --highlight-color-valid: transparent !important; 
+}
+

@@ -3,40 +3,22 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { StuffManagerService } from './services/stuff-manager.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
-  public appPages = [
-    {
-      title: 'Home',
-      url: '/home',
-      icon: 'home'
-    },
-    {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
-    },
-    {
-      title: 'Profile',
-      url: '/profile',
-      icon: 'person'
-    },
-    {
-      title: 'Search',
-      url: '/search',
-      icon: 'search'
-    }
-  ];
+  public appPages;
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private _stuffManager: StuffManagerService
   ) {
+    this.appPages = this._stuffManager.getPages();
     this.initializeApp();
   }
 
@@ -46,4 +28,5 @@ export class AppComponent {
       this.splashScreen.hide();
     });
   }
+
 }

@@ -2,14 +2,14 @@
   <ion-split-pane>
     <ion-menu>
       <ion-header>
-        <ion-toolbar>
+        <ion-toolbar color="red">
           <ion-title>Menu</ion-title>
         </ion-toolbar>
       </ion-header>
-      <ion-content>
-        <ion-list>
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
-            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+      <ion-content color="dark">
+        <ion-list color="dark">
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of this._stuffManager.getPages()" color="dark">
+            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" color="dark">
               <ion-icon slot="start" [name]="p.icon"></ion-icon>
               <ion-label>
                 {{p.title}}
