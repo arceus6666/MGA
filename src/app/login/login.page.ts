@@ -26,7 +26,7 @@ export class LoginPage implements OnInit {
     this._restapi.getGlobal('/users/login', this.un + '-' + this.pass).subscribe(data => {
       let mdata: any = data;
       mdata = mdata.msg;
-      this._logger.login(mdata._id);
+      this._logger.login(mdata._id, mdata.token);
       this._router.navigate(['home']);
       this._stuffManager.showAlert('Welcome');
     }, err => {

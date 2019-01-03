@@ -7,7 +7,7 @@
         </ion-toolbar>
       </ion-header>
       <ion-content color="dark">
-        <ion-list color="dark">
+        <ion-list color="dark" style="padding:0px 0">
           <ion-menu-toggle auto-hide="false" *ngFor="let p of this._stuffManager.getPages()" color="dark">
             <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" color="dark">
               <ion-icon slot="start" [name]="p.icon"></ion-icon>

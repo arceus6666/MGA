@@ -8,6 +8,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 export class StuffManagerService {
 
   private appPages;
+  private token;
 
   constructor(
     private alertCtrl: AlertController,
@@ -108,5 +109,13 @@ export class StuffManagerService {
     }, err => {
       this.showAlert('An error ocurred with the camera', null, err);
     })
+  }
+
+  public storeToken(tk) {
+    localStorage.setItem('token', tk);
+  }
+
+  public getToken() {
+    return localStorage.getItem('token');
   }
 }

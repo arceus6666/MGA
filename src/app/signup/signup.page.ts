@@ -45,11 +45,9 @@ export class SignupPage implements OnInit {
         if (e.split(' ')[0] === 'E11000') {
           this._stuffManager.showAlert('ERROR !', 'Username already exists.', 'Please choose a different username.');
         } else {
-          //console.log(err)
           this._stuffManager.showAlert('ERROR !', null, e)
         }
       } else {
-        //console.log(err)
         this._stuffManager.showAlert('ERROR !', null, e)
       }
     })

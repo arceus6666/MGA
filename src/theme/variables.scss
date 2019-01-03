@@ -130,3 +130,9 @@ ion-button {
   -webkit-text-fill-color: #bb0000;
   color: #222428;
 }
+
+ion-list .list-md {
+  margin: 0;
+  padding: 0px 0;
+  background: var(--ion-item-background,var(--ion-background-color,#fff));
+}

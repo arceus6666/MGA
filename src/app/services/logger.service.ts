@@ -8,6 +8,7 @@ export class LoggerService {
 
   private logged: boolean;
   private _id: string;
+  private token: string;
 
   constructor(private _stuffManager: StuffManagerService) {
     this.logged = false;
@@ -22,9 +23,14 @@ export class LoggerService {
     return this._id;
   }
 
-  public login(id): void {
+  public getToken(): string {
+    return this.token;
+  }
+
+  public login(id,tk): void {
     this.logged = true;
     this._id = id;
+    this.token = tk;
     this._stuffManager.setPages([
       {
         title: 'Home',
