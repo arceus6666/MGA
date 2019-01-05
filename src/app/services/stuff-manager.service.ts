@@ -82,14 +82,23 @@ export class StuffManagerService {
 
   /**
    * Shows a custom loading popup.
-   * @param msg Message shown in the popup
+   * @param Message shown in the popup
    * @param duration Duration of the popup (in seconds).
    */
   public async showLoading(msg?: string, duration?: number) {
     const loading = await this.loadingCtrl.create({
-      message: msg,
-      duration: 1000 * duration
+      message: 'Loading',
+      duration: 1000
     });
+
+    if (msg) {
+      loading.message = msg;
+    }
+
+    if (duration) {
+      loading.duration *= duration;
+    }
+
     await loading.present();
   }
 
@@ -111,11 +120,28 @@ export class StuffManagerService {
     })
   }
 
-  public storeToken(tk) {
-    localStorage.setItem('token', tk);
+  /**
+   * Save an item in local storage.
+   * @param {string} key key for the item.
+   * @param {string} item item to store.
+   */
+  public storeItem(key: string, item: string): void {
+    localStorage.setItem(key, item);
   }
 
-  public getToken() {
-    return localStorage.getItem('token');
+  /**
+   * Recover an item from local storage.
+   * @param {string} key key of the item.
+   */
+  public getItem(key: string): string {
+    return localStorage.getItem(key);
+  }
+
+  /**
+   * Delete an item from local storage.
+   * @param {string} key key of the item.
+   */
+  public removeItem(key: string): void {
+    localStorage.removeItem(key);
   }
 }
