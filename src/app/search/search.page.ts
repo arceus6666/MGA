@@ -33,9 +33,14 @@ export class SearchPage implements OnInit {
   }
 
   public search(): void {
+<<<<<<< HEAD
     this._stuffManager.showLoading('Searching...', 1);
     this.searched2 = false;
     this.stars = [];
+=======
+    this._stuffManager.showLoading('Searching...', 2)
+    this.stars = []
+>>>>>>> 0917547ef4eb51bc809906b7eea82bc535f4cc15
     this.pfs = [false, false, false, false];
     this._restapi.getGlobal('/games/find-name', this.game_name).subscribe(data => {
       let mdata: any = data;
