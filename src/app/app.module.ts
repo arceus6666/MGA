@@ -15,7 +15,6 @@ import { FormsModule } from '@angular/forms';
 import { LoggerService } from './services/logger.service';
 import { StuffManagerService } from './services/stuff-manager.service';
 import { Camera } from '@ionic-native/camera/ngx';
-import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -27,8 +26,7 @@ import { environment } from '../environments/environment';
     HttpModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    FormsModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    FormsModule
   ],
   providers: [
     StatusBar,
