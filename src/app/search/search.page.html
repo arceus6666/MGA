@@ -10,12 +10,20 @@
 </ion-header>
 
 <ion-content padding color="red">
-  <ion-item>
+  <ion-item *ngIf="!this.searched && !this.searched2">
     <ion-label floating>Search Here</ion-label>
     <ion-input name="gn" type="text" #gn="ngModel" [(ngModel)]="game_name"></ion-input>
     <ion-icon name="search" (click)="search()"></ion-icon>
   </ion-item>
-  <br/>
+  <br />
+  <div *ngIf="!this.searched && !this.searched2" class="game-icon">
+    <label>Or search by platform</label><br /><br />
+    <ion-icon name="logo-playstation" (click)="searchG('^(PlayStation)')"></ion-icon><span> | </span>
+    <ion-icon name="logo-xbox" (click)="searchG('^(Xbox)')"></ion-icon><span> | </span>
+    <ion-icon name="logo-windows" (click)="searchG('(Windows)$')"></ion-icon><span> | </span>
+    <ion-icon name="logo-game-controller-b" (click)="searchG('[^(^(PlayStation))(^(Xbox))((Windows)$)]')"></ion-icon><span>
+      | </span>
+  </div>
   <div *ngIf="this.searched">
     <img class="home-image" [src]="this.image">
     <div class="game-title">{{this.game.name}}</div>
@@ -31,12 +39,35 @@
       <br />
     </div>
     <div class="game-icon">
-      Available on <ion-icon *ngIf="pfs[0]" name="logo-playstation"></ion-icon><ion-icon *ngIf="pfs[1]" name="logo-xbox"></ion-icon><ion-icon *ngIf="pfs[2]" name="logo-windows"></ion-icon><ion-icon *ngIf="pfs[3]" name="logo-game-controller-b"></ion-icon>
+      Available on <ion-icon *ngIf="pfs[0]" name="logo-playstation"></ion-icon>
+      <ion-icon *ngIf="pfs[1]" name="logo-xbox"></ion-icon>
+      <ion-icon *ngIf="pfs[2]" name="logo-windows"></ion-icon>
+      <ion-icon *ngIf="pfs[3]" name="logo-game-controller-b"></ion-icon>
     </div>
     <div class="game-description">
       <b>Description</b>
       <br />
       {{this.game.description}}
     </div>
+  </div>
+  <div *ngIf="this.searched2">
+    <table class="table">
+      <tr>
+        <th class="head">Game</th>
+        <th class="head">Ranking</th>
+      </tr>
+      <tr *ngFor="let game of games; let i = index" class="body" (click)="changeGame(game);">
+        <td class="game-name">{{game.name}}</td>
+        <td>
+          <div class="star-image" *ngFor="let s of this.gstars[i]">
+            <img class="star-image" src="{{s}}">
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div *ngIf="this.searched || this.searched2"><br />
+    Clear search: <img class="trash-image" src="../../assets/images/trash.png" (click)="clearSearch()">
   </div>
 </ion-content>

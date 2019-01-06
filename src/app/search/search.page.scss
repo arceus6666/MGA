@@ -11,9 +11,21 @@
   width: 50px;
 }
 
+.trash-image {
+  height: 50px;
+  width: 50px;
+}
+
 .game-title {
   font-size: 300%;
   font-family: "Comic Sans MS", Helvetica, sans-serif;
+}
+
+.game-name {
+  font-size: 200%;
+  font-family: "Comic Sans MS", Helvetica, sans-serif;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .game-publishing {
@@ -33,4 +45,27 @@
 
 .game-icon ion-icon {
   color: #222428;
+}
+
+.body {
+  background-color: #bb0000;
+  color: #222428;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.head {
+  background-color: #222428;
+  color: #bb0000;
+  padding-right: 10px;
+}
+
+table {
+  border-collapse: collapse;
+  td {
+    border: 1px solid #222428;
+  }
+  th {
+    border: 1px solid #222028;
+  }
 }
