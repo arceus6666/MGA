@@ -18,7 +18,8 @@
     Here's a random game to start
   </div>
   <div class="random-game">
-    <img class="home-image" [src]="this.image">
+    (Click on image for more info)<br />
+    <img class="home-image" [src]="this.image" (click)="goToGame()">
     <!--/ion-split-pane-->
     <div class="game-title">{{this.name}}</div>
     <br />

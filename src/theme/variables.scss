@@ -119,7 +119,7 @@ ion-input {
 ion-item {
   --background: #222428;
   --color: #bb0000;
-  --highlight-color-valid: transparent !important; 
+  --highlight-color-valid: transparent !important;
 }
 
 ion-icon {
@@ -134,5 +134,10 @@ ion-button {
 ion-list .list-md {
   margin: 0;
   padding: 0px 0;
-  background: var(--ion-item-background,var(--ion-background-color,#fff));
+  background: var(--ion-item-background, var(--ion-background-color, #fff));
+}
+
+ion-button .button-search {
+  padding: 12px 28px;
+  color: #222428;
 }

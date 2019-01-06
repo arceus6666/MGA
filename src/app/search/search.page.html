@@ -17,12 +17,36 @@
   </ion-item>
   <br />
   <div *ngIf="!this.searched && !this.searched2" class="game-icon">
-    <label>Or search by platform</label><br /><br />
-    <ion-icon name="logo-playstation" (click)="searchG('^(PlayStation)')"></ion-icon><span> | </span>
-    <ion-icon name="logo-xbox" (click)="searchG('^(Xbox)')"></ion-icon><span> | </span>
-    <ion-icon name="logo-windows" (click)="searchG('(Windows)$')"></ion-icon><span> | </span>
-    <ion-icon name="logo-game-controller-b" (click)="searchG('[^(^(PlayStation))(^(Xbox))((Windows)$)]')"></ion-icon><span>
-      | </span>
+    <ion-label>Or search by platform</ion-label><br />
+    <div class="icon-group">
+      <ion-icon name="logo-playstation" (click)="searchP('^(PlayStation)')"></ion-icon>
+    </div>
+    <div class="icon-group">
+      <ion-icon name="logo-xbox" (click)="searchP('^(Xbox)')"></ion-icon>
+    </div>
+    <div class="icon-group">
+      <ion-icon name="logo-windows" (click)="searchP('(Windows)$')"></ion-icon>
+    </div>
+    <div class="icon-group">
+      <ion-icon name="logo-game-controller-b" (click)="searchP('[^(^(PlayStation))(^(Xbox))((Windows)$)]')"></ion-icon>
+    </div>
+  </div><br />
+  <div *ngIf="!this.searched && !this.searched2" class="game-icon">
+    <ion-label>Maybe by genre</ion-label>
+    <div class="control-group">
+      <ion-button class="button-block" color="dark" (click)="searchP('Fighting')">Fighting</ion-button>
+      <ion-button class="button-block" color="dark" (click)="searchP('Action')">Action</ion-button>
+      <ion-button class="button-block" color="dark" (click)="searchP('RPG')">RPG</ion-button>
+      <ion-button class="button-block" color="dark" (click)="searchP('Adventure')">Adventure</ion-button>
+      <ion-button class="button-block" color="dark" (click)="searchP('Racing')">Racing</ion-button>
+    </div>
+    <div class="control-group">
+      <ion-button class="button-block" color="dark" (click)="searchP('Horror')">Horror</ion-button>
+      <ion-button class="button-block" color="dark" (click)="searchP('Shooter')">Shooter</ion-button>
+      <ion-button class="button-block" color="dark" (click)="searchP('Strategy')">Strategy</ion-button>
+      <ion-button class="button-block" color="dark" (click)="searchP('Arcade')">Arcade</ion-button>
+      <ion-button class="button-block" color="dark" (click)="searchP('Indie')">Indie</ion-button>
+    </div>
   </div>
   <div *ngIf="this.searched">
     <img class="home-image" [src]="this.image">
@@ -39,10 +63,19 @@
       <br />
     </div>
     <div class="game-icon">
-      Available on <ion-icon *ngIf="pfs[0]" name="logo-playstation"></ion-icon>
-      <ion-icon *ngIf="pfs[1]" name="logo-xbox"></ion-icon>
-      <ion-icon *ngIf="pfs[2]" name="logo-windows"></ion-icon>
-      <ion-icon *ngIf="pfs[3]" name="logo-game-controller-b"></ion-icon>
+      <b>Available on </b><br />
+      <div class="icon-group">
+        <ion-icon *ngIf="pfs[0]" name="logo-playstation"></ion-icon>
+      </div>
+      <div class="icon-group">
+        <ion-icon *ngIf="pfs[1]" name="logo-xbox"></ion-icon>
+      </div>
+      <div class="icon-group">
+        <ion-icon *ngIf="pfs[2]" name="logo-windows"></ion-icon>
+      </div>
+      <div class="icon-group">
+        <ion-icon *ngIf="pfs[3]" name="logo-game-controller-b"></ion-icon>
+      </div>
     </div>
     <div class="game-description">
       <b>Description</b>

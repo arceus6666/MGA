@@ -9,6 +9,7 @@ export class StuffManagerService {
 
   private appPages;
   private token;
+  private routedGame;
 
   constructor(
     private alertCtrl: AlertController,
@@ -37,6 +38,8 @@ export class StuffManagerService {
         icon: 'person-add'
       }
     ];
+    this.token = null;
+    this.routedGame = null;
   }
 
   public getPages(): Array<Object> {
@@ -45,6 +48,14 @@ export class StuffManagerService {
 
   public setPages(pages): void {
     this.appPages = pages;
+  }
+
+  public getRoutedGame(): string {
+    return this.routedGame;
+  }
+
+  public setRoutedGame(game) {
+    this.routedGame = game;
   }
 
   /**

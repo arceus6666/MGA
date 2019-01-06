@@ -37,7 +37,7 @@ export class LoginPage implements OnInit {
   }
 
   signup() {
-
+    this._router.navigate(['signup'])
   }
 
 }
