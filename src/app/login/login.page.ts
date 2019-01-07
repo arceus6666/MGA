@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class LoginPage implements OnInit {
   public un: string;
   public pass: string;
+  public cbchecked: boolean;
   constructor(
     private _logger: LoggerService,
     private _restapi: RestapiService,
@@ -25,8 +26,10 @@ export class LoginPage implements OnInit {
   login() {
     this._restapi.getGlobal('/users/login', this.un + '-' + this.pass).subscribe(data => {
       let mdata: any = data;
-      mdata = mdata.msg;
-      this._logger.login(mdata._id, mdata.token);
+      this._logger.login(mdata.msg._id, mdata.token);
+      if (this.cbchecked) {
+        this._stuffManager.storeItem('token', mdata.token);
+      }
       this._router.navigate(['home']);
       this._stuffManager.showAlert('Welcome');
     }, err => {

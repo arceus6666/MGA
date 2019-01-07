@@ -27,7 +27,8 @@ export class LoggerService {
     return this.token;
   }
 
-  public login(id,tk): void {
+  public login(id, tk): void {
+    console.log('login with: ' + id +', ' + tk)
     this.logged = true;
     this._id = id;
     this.token = tk;
@@ -58,6 +59,10 @@ export class LoggerService {
   public logout(): void {
     this.logged = false;
     this._id = null;
+    this.token = null;
+    if (this._stuffManager.getItem('token')) {
+      this._stuffManager.removeItem('token');
+    }
     this._stuffManager.setPages([
       {
         title: 'Home',

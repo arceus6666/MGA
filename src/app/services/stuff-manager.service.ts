@@ -133,10 +133,11 @@ export class StuffManagerService {
 
   /**
    * Save an item in local storage.
-   * @param {string} key key for the item.
-   * @param {string} item item to store.
+   * @param key key for the item.
+   * @param item item to store.
    */
   public storeItem(key: string, item: string): void {
+    console.log('saving: '+ item +', as: ' + key)
     localStorage.setItem(key, item);
   }
 

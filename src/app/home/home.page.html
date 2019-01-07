@@ -19,7 +19,7 @@
   </div>
   <div class="random-game">
     (Click on image for more info)<br />
-    <img class="home-image" [src]="this.image" (click)="goToGame()">
+    <img class="home-image" *ngIf="this.image" [src]="this.image" (click)="goToGame()">
     <!--/ion-split-pane-->
     <div class="game-title">{{this.name}}</div>
     <br />

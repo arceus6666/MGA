@@ -16,7 +16,7 @@ export class RestapiService {
     return this._http.get<Object>(this.backend_url + urlMethod, {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
-        .set('token', tk),
+        .set('Authorization', tk),
       params: new HttpParams().set('param', param)
     })
   }
@@ -27,7 +27,7 @@ export class RestapiService {
     return this._http.post<Object>(this.backend_url + urlMethod, valor, {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
-        .set('token', tk)
+        .set('Authorization', tk)
     })
   }
 
@@ -36,7 +36,7 @@ export class RestapiService {
     return this._http.delete<Object>(this.backend_url + urlMethod + code, {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
-        .set('token', tk)
+        .set('Authorization', tk)
     })
   }
 
@@ -46,7 +46,7 @@ export class RestapiService {
     return this._http.put<Object>(this.backend_url + urlMethod, valor, {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
-        .set('token', tk)
+        .set('Authorization', tk)
     })
   }
 }

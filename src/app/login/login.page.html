@@ -10,14 +10,22 @@
 </ion-header>
 
 <ion-content padding color="red">
-  <ion-item>
+  <ion-item class="input">
     <ion-label floating>Username</ion-label>
     <ion-input name="username" type="text" #username="ngModel" [(ngModel)]="un"></ion-input>
   </ion-item>
-  <ion-item>
+  <ion-item class="input">
     <ion-label floating>Password</ion-label>
     <ion-input name="password" type="password" #password="ngModel" [(ngModel)]="pass" text-input-md-background-color="black"></ion-input>
   </ion-item>
-  <ion-button (click)="login()" color="dark" round>Login</ion-button>
-  <ion-button (click)="signup()" color="dark" round>SignUp</ion-button>
+  <div class="control-group">
+    <ion-button (click)="login()" color="dark" round>Login</ion-button>
+  </div>
+  <div class="control-group">
+    <ion-button (click)="signup()" color="dark" round>SignUp</ion-button>
+  </div>
+  <div class="check">
+    <ion-label color="red">Keep me logged in </ion-label>
+    <ion-checkbox color="dark" [checked]="cbchecked"></ion-checkbox>
+  </div>
 </ion-content>
